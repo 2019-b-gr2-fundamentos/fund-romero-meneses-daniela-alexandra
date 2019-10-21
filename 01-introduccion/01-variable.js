@@ -13,7 +13,7 @@ int         -> Número entero       Ej: -5,0,1,2,3
 char        -> Caracter            Ej: a, b, c
 float       -> Números decimales   Ej: 3.1415, 524.369
 double      -> N. Decimales ++     Ej: 468786453614...
-string      -> 
+string      -> Arreglo de char     Ej: 
 null        -> VACIO               Ej: null
 boolean     -> Verdadero/Falso     Ej: True or False
 */
