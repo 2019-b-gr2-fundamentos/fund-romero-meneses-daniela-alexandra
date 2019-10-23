@@ -9,7 +9,7 @@ variable_local = "variable"
 
 # Variables Globales: se pueden acceder desde cualquier sitio y 
 # se escriben con el símbolo $ delante
-$foo = 5
+$variable_global = 5
 
 # Variables para instanciar un objeto: se escriben con una arroba @ delante
 @carro = Carro.new
