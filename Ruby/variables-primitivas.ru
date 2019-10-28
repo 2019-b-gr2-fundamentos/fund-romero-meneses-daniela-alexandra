@@ -1,7 +1,6 @@
 #                Variables Primitivas en Ruby
-# En el lenguaje de programación Ruby no existen variables primitivas
-# debido a  que todas las varibles son consideradas objetos. Además, Ruby 
-# no necesita definir el tipo de variable que es antes de inicializarla
+# En el lenguaje de programación Ruby no existen variables primitivas debido a  que todas las varibles son consideradas objetos. 
+# Además, Ruby no necesita definir el tipo de variable que es antes de inicializar la variable.
 
 # TIPOS DE VARIABLES EN RUBY
 # Variables Locales: no tienen ningún prefijo
