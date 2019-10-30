@@ -66,3 +66,63 @@ FALSE Y FALSE = FALSE
 //estaEnModoSilencio == true
 //const seAtrasoAClase == celularDescargado == true || celularDañado  == true || amananeceMuerto == true || estaActivadaLaAlarma  != true || estaEnModoSilencio == true;
 // if (seAtrasoAClase)
+
+
+
+
+//TRUTY & FALSY
+if(0){
+    console.log("Truty");
+}else{
+    console.log("Falsy");
+}
+
+//Un string vacío significa false
+//Todas las letras y los numeros son truty excepto el cero, null, undefined
+
+// Switch es una manera de escribir varios if y else, solo funciona con valores especificos
+
+/*
+const calculo = "sumar"; //sumar restar multiplicar dividir
+switch(calculo) {
+    case "sumar": //1
+        //code 
+        break ;
+    case "restar": //2
+        //code 
+        break;
+    case "multiplicar": //3
+        //code 
+        break;
+    case "dividir": //4
+        //code 
+        break;
+    default:
+}
+*/
+
+// BREAK : detiene las comparaciones que se realizan en cada caso, se tiene iguales comparaciones que casos
+
+//6 Guagua
+//18 Guambra
+//65 Longo
+//66 Ruku
+const edad = 30;
+if( edad <=6 && edad >= 0 ){
+    console.log("guagua");
+}else{
+    if(edad > 6 && edad <= 18){
+        console.log("guambra");
+    }else{
+        if(edad > 18 && edad <= 65){
+            console.log("longo");
+        }else{
+            if(edad > 65){
+                console.log("ruku");
+            }else{
+                console.log("no aplica");
+            }
+        }
+    }
+}
+
