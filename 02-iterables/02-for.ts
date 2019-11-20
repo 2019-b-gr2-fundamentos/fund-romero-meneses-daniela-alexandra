@@ -37,7 +37,7 @@ console.log("arreglo numeros", arregloNumeros);
 
 //A las variable mutables se les puede reasignar por lo que son menos utilizados 
 //Push -> Añade un caracter al arreglo
-// Pop -> Saca el ultimo carcater de un arreglo
+//Pop -> Saca el ultimo carcater de un arreglo
 
 /* 
 ARREGLO
