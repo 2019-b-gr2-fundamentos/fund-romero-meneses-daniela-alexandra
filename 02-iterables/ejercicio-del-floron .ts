@@ -16,4 +16,7 @@ for(let elementos = 0; elementos < jugadores ; elementos ++ ){
     const quienTieneElFloron = (Math.floor(Math.random()*2));
     floron.push(quienTieneElFloron);
     console.log(quienTieneElFloron);
+    if(floron == [0, 0, 0, 0, 0]){
+        console.log("[1, 0, 0, 0, 1]")
+    }
 }
