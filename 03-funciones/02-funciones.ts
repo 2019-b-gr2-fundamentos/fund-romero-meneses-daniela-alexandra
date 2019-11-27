@@ -46,10 +46,7 @@ function calculadora() {
         }else{
             calculadora();
         }
-    
-
     }
-    
 }
 main()
 
