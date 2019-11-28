@@ -15,15 +15,24 @@ function main(){
 main();
 
 function ElementosArrglo(arregloNumeros: number[]){
-    if(arregloNumeros == [null] ){
-        console.log("Ya no hay mas numeros");
-    }else{
-        for(let i = 0; i < arregloNumeros.length; i++ ){
-            console.log(arregloNumeros[i]);
-        }
+    for(let i = 0; i < arregloNumeros.length; i++ ){
+          console.log(arregloNumeros[i]);
     }
+    console.log("No hay mas numeros")
 }
 function main2(){
-    ElementosArrglo([1, 2, 3]);
+    ElementosArrglo([8, 5, 40]);
 }
 main2();
+
+function ArregloInverso(arregloNumeros: number[]){
+    for(let i = arregloNumeros.length - 1; i < arregloNumeros.length && i >= 0; i--){
+        console.log(arregloNumeros[i]);
+    }
+    console.log("No hay mas numeros");
+}
+
+function main3(){
+    ArregloInverso([ 9, 5, 8]);
+}
+main3();
