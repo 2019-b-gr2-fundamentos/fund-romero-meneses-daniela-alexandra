@@ -1,3 +1,7 @@
+/* 
+PARTE 1
+Añadir 6 operaciones extras a la calculadora que se hizo en clase
+*/
 function sumar(numUno:number, numDos:number): number{
     return numUno + numDos;
 }
@@ -117,3 +121,45 @@ function calculadora() {
     }
 }
 main();
+
+/*
+PARTE 2
+Crear, borrar, actualizar los elementos dentro de un arreglo
+*/
+
+function arreglo(elementos:string[]):void {
+    const torneos:string = prompt('Selecciones lo que quiere hacer: "añadir torneo-1", "Borrar Torneo-2", "Actualizar-3", "terminamos-4"')
+    const anadirTorneo: boolean = torneos == 'añadir torneo'|| torneos == 'añadirtorneo'|| torneos == 'añadir torneo-1'|| torneos == '1';
+    const borrarTorneo : boolean = torneos == 'borrar torneo'|| torneos == 'borrartorneo'|| torneos == 'borrar torneo-2'|| torneos == '2';
+    const actualizar:boolean = torneos== 'actualizar'|| torneos == 'actualizar-3' || torneos == '3';
+    const terminamos: boolean = torneos == 'terminamos' || torneos == 'terminamos-4'|| torneos == '4';
+    const esValido: boolean = anadirTorneo || borrarTorneo;
+
+    if(esValido){
+        let i = +prompt('Ingrese posicion\nrecuerde que el primer elemento se ubica en la posicion 0');
+            if(anadirTorneo){
+                elementos.splice(i,0,prompt('Nombre del torneo'));
+                arreglo(elementos);
+            }
+            if(borrarTorneo){
+                elementos.splice(i,1);
+                arreglo(elementos);
+            }
+    }else{
+        if(actualizar){
+            console.log(elementos);
+            arreglo(elementos);
+        }else{
+            if(terminamos){
+                console.log('Terminamos');
+            }else{
+                arreglo(elementos)
+            }
+        }
+    }  
+} 
+
+function main2() {
+    arreglo([])
+}
+main2()
