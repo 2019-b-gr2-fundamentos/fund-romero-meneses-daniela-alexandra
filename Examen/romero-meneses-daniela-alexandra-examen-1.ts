@@ -116,4 +116,4 @@ function calculadora() {
         }
     }
 }
-main()
+main();
