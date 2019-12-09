@@ -127,35 +127,139 @@ PARTE 2
 Crear, borrar, actualizar los elementos dentro de un arreglo
 */
 function arreglo(elementos) {
-    var torneos = prompt('Selecciones lo que quiere hacer: "añadir torneo-1", "Borrar Torneo-2", "Actualizar-3", "terminamos-4"');
+    var torneos = prompt('Selecciones lo que quiere hacer: "añadir torneo-1", "Borrar Torneo-2","Actualizar-3", "terminamos-4"');
     var anadirTorneo = torneos == 'añadir torneo' || torneos == 'añadirtorneo' || torneos == 'añadir torneo-1' || torneos == '1';
     var borrarTorneo = torneos == 'borrar torneo' || torneos == 'borrartorneo' || torneos == 'borrar torneo-2' || torneos == '2';
     var actualizar = torneos == 'actualizar' || torneos == 'actualizar-3' || torneos == '3';
     var terminamos = torneos == 'terminamos' || torneos == 'terminamos-4' || torneos == '4';
-    var esValido = anadirTorneo || borrarTorneo;
+    var esValido = anadirTorneo || borrarTorneo || actualizar;
     if (esValido) {
-        var i = +prompt('Ingrese posicion\n recuerde que el primer elemento se ubica en la posicion 0');
+        var i = +prompt('Ingrese posicion:', ' la posicicon debe iniciar desde 1') - 1;
         if (anadirTorneo) {
             elementos.splice(i, 0, prompt('Nombre del torneo'));
+            console.log(elementos);
             arreglo(elementos);
         }
         if (borrarTorneo) {
             elementos.splice(i, 1);
-            arreglo(elementos);
-        }
-    }
-    else {
-        if (actualizar) {
             console.log(elementos);
             arreglo(elementos);
         }
+        if (actualizar) {
+            var tipo = prompt("Seleccione que categoria: 'Men's Singles-1', 'Men's Doubles-2', 'Women's Singles-3', 'Women's Doubles-4', 'Mix Doubles-5' ");
+            var menSingles = tipo == "Men's Singles" || tipo == "1" || tipo == "Men's Singles-1";
+            var womenSingles = tipo == "Woman's Singles" || tipo == "Women's Singles-3" || tipo == '3';
+            var menDoubles = tipo == "Men's Doubles" || tipo == "Men's Doubles-2" || tipo == '2';
+            var womenDoubles = tipo == "Women's Doubles" || tipo == "Women's Doubles-4" || tipo == '4';
+            var mixDoubles = tipo == "Mix Doubles" || tipo == 'Mix Doubles-5' || tipo == '5';
+            switch (elementos[i]) {
+                case 'shanghai masters':
+                    console.log("Ronnie O'Sullivan");
+                    arreglo(elementos);
+                    break;
+                case 'australia open':
+                    if (menSingles) {
+                        elementos[i] = 'Novak Djokovic';
+                    }
+                    if (womenSingles) {
+                        elementos[i] = 'Naomi Osaka';
+                    }
+                    if (menDoubles) {
+                        elementos[i] = 'Pierre-Hugues Herbert & Nicolas Mahut';
+                    }
+                    if (womenDoubles) {
+                        elementos[i] = 'Samantha Stosur & Zhang Shuai';
+                    }
+                    if (mixDoubles) {
+                        elementos[i] = 'Barbora Krejčíková & Rajeev Ram';
+                    }
+                    console.log(elementos);
+                    arreglo(elementos);
+                    break;
+                case 'italian open':
+                    if (menSingles) {
+                        elementos[i] = 'Rafael Nadal';
+                    }
+                    if (womenSingles) {
+                        elementos[i] = 'Karolina Pliskova';
+                    }
+                    if (menDoubles) {
+                        elementos[i] = 'Juan Sebastián Cabal & Robert Farah';
+                    }
+                    if (womenDoubles) {
+                        elementos[i] = 'Victoria Azarenka  & Ashleigh';
+                    }
+                    if (mixDoubles) {
+                        elementos[i] = 'N/A';
+                    }
+                    console.log(elementos);
+                    arreglo(elementos);
+                    break;
+                case 'madrid open':
+                    if (menSingles) {
+                        elementos[i] = 'Novak Djokovic';
+                    }
+                    if (womenSingles) {
+                        elementos[i] = 'Kiki Bertens';
+                    }
+                    if (menDoubles) {
+                        elementos[i] = 'Jean-Julien Rojer & Horia Tecau';
+                    }
+                    if (womenDoubles) {
+                        elementos[i] = 'Hsieh Su-wei & Barbora Strýcová';
+                    }
+                    if (mixDoubles) {
+                        elementos[i] = 'N/A';
+                    }
+                    console.log(elementos);
+                    arreglo(elementos);
+                case 'us open':
+                    if (menSingles) {
+                        elementos[i] = 'Rafael Nadal';
+                    }
+                    if (womenSingles) {
+                        elementos[i] = 'Bianca Andreescu';
+                    }
+                    if (menDoubles) {
+                        elementos[i] = 'Juan Sebastián Cabal & Robert Farah';
+                    }
+                    if (womenDoubles) {
+                        elementos[i] = 'Elise Mertens and Aryna Sabalenka';
+                    }
+                    if (mixDoubles) {
+                        elementos[i] = 'N/A';
+                    }
+                    console.log(elementos);
+                    arreglo(elementos);
+                    break;
+                case 'wimbledon':
+                    if (menSingles) {
+                        elementos[i] = 'Novak Djokovic';
+                    }
+                    if (womenSingles) {
+                        elementos[i] = 'Simona Halep';
+                    }
+                    if (menDoubles) {
+                        elementos[i] = 'Juan Sebastián Cabal & Robert Farah';
+                    }
+                    if (womenDoubles) {
+                        elementos[i] = 'Hsieh Su-wei & Barbora Strýcová';
+                    }
+                    if (mixDoubles) {
+                        elementos[i] = 'Ivan Dodig & Latisha Chan';
+                    }
+                    console.log(elementos);
+                    arreglo(elementos);
+                    break;
+            }
+        }
+    }
+    else {
+        if (terminamos) {
+            console.log('Terminamos');
+        }
         else {
-            if (terminamos) {
-                console.log('Terminamos');
-            }
-            else {
-                arreglo(elementos);
-            }
+            arreglo(elementos);
         }
     }
 }
