@@ -51,10 +51,69 @@ def calculadora
       espiramide = operaciondos == 'piramide triangular' || operaciondos == 'piramide triangular-6' || operaciondos == '6'
       terminamos = operaciondos == 'terminamos'|| operaciondos == 'terminamos-7' || operaciondos == '7'
       resultado = 0
-      if estetraedro
-        alturame = ge
+      if estrapezoide
+        alturame = get("Inserte altura menor")
+        alturama = get("Inserte altura mayor")
+        baseme = get("Ingrese base menor")
+        basema = get("Ingrese base mayor")
+        resultado = volumentrapezoide(baseme, basema, alturame, alturama)
       end
+      if estetraedro
+        lado = get("Inserte lado")
+        resultado = volumentetraedro(lado)
+      end
+      if esesfera
+        radio = get
+        resultado = volumenesfera(radio)
+      end
+      if escilindro
+        radio = get
+        altura = get
+        resultado = volumencilindro(radio,altura)
+      end
+      if escono
+        radio = get
+        altura = get
+        resultado = volumencono(radio,altura)
+      end
+      if espiramide
+        ladobase = get
+        altura = get
+        resultado = volumenpiramidatriangular(ladobase, altura)
+      end
+      printf("resultado =", resultado)
 
+      if terminamos
+        printf("Terminamos")
+      else
+        calculadora()
+      end
+     else
+      numuno = get
+      numdos = get
+      if essuma
+        resultado = suma(numuno, numdos)
+      end
+      if esresta
+        resultado = resta(numuno, numdos)
+      end
+      if esmultiplicacion
+        resultado = multiplicacion(numuno, numdos)
+      end
+      if esdivision
+        resultado = division(numuno, numdos)
+      end
+      printf("resultado =", resultado)
+    else
+      if setermino
+        printf("Terminamos")
+      else
+        calculadora()
+      end
     end
   end
 end
+def main
+calculadora()
+end
+main()
