@@ -259,10 +259,10 @@ iniciar_operacion = 1
 
 while iniciar_operacion == 1
   
-  organizacion = $torneos.each_with_index do |element, index|
+  $torneos.each_with_index do |element, index|
   puts "#{index}: #{element}"
+  end
 
-end
   programa = torneo
 
   if programa == 'error'
@@ -273,7 +273,7 @@ end
   elsif programa == "anadir"
 
     puts "Ingrese posicion a anadir torneo"
-    i = gets.to_i 
+    i = gets.to_i
 
     puts "Nombre de torneo"
 
@@ -283,7 +283,9 @@ end
 
     puts "\n"
 
-    puts organizacion
+    $torneos.each_with_index do |element, index|
+      puts "#{index}: #{element}"
+    end
 
     puts "Ponga 1 para realizar otra operacion"
 
@@ -298,7 +300,9 @@ end
 
     puts "\n"
 
-    puts organizacion
+    $torneos.each_with_index do |element, index|
+      puts "#{index}: #{element}"
+    end
 
     puts "Presione 1 para hacer regresar a las opciones principales"
 
