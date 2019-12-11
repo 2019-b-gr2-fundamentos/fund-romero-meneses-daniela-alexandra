@@ -56,23 +56,23 @@ def respuesta_calculos(operador, numuno, numdos)
     end
 end
 
-def volumen_trapezoide (baseme, basema, alturame, alturama)
-  return ((1/2) * ( baseme + basema ) * alturame ) * alturama
+def volumen_trapezoide ( constra, baseme, basema, alturame, alturama)
+  (constra * ( baseme + basema ) * alturame ) * alturama
 end
-def volumen_tetraedro(lado)
-  return ((lado^2) *Math.sqrt(2) ) * (1 / 12)
+def volumen_tetraedro(conste, lado)
+   (conste * lado * lado)
 end
-def volumen_esfera(radio)
-  return ((4/3)* Math::PI * radio * radio * radio)
+def volumen_esfera( constes, radio)
+   (constes * radio * radio * radio)
 end
-def volumen_cilindro(radio, altura)
-  return (Math::PI * radio * radio * altura)
+def volumen_cilindro(constci, radio, altura)
+   (constci * radio * radio * altura)
 end
-def volumen_cono(radio, altura)
-  return (Math::PI * radio^2 * altura) * (1 / 3)
+def volumen_cono(constco, radio, altura)
+   (constco * radio * radio * altura)
 end
-def volumen_piramide(ladobase, altura)
-  return ((Math.sqrt(3)) * (1 / 12) * ladobase * altura)
+def volumen_piramide(constpi, ladobase, altura)
+  (constpi * ladobase * altura)
 end
 
 run_calculadora = 1
@@ -90,6 +90,7 @@ while run_calculadora == 1
     volumenes = respuestas_volumenes()
 
     if volumenes == "trapezoide"
+      constra = 0.5
       puts "Ingrese base menor"
       baseme = gets.to_f
       puts "Ingrese base mayor"
@@ -99,7 +100,7 @@ while run_calculadora == 1
       puts "Ingrese altura mayor"
       alturama = gets.to_f
 
-      respuesta = volumen_trapezoide(baseme,basema,alturame,alturama)
+      respuesta = volumen_trapezoide(constra, baseme,basema,alturame,alturama)
 
       puts "Su respuesta es #{respuesta}"
 
@@ -108,18 +109,26 @@ while run_calculadora == 1
       run_calculadora = gets.to_i
 
     elsif volumenes == "tetraedro"
-      puts "Ingrese el valor del lado"
-      lado = gets.to_f
+      conste = 0.11785
 
-      respuesta = volumen_tetraedro(lado)
+      puts "Ingrese el valor del lado"
+      lado = gets.to_i
+
+      respuesta = volumen_tetraedro(conste,lado)
 
       puts "Su respuesta es #{respuesta}"
+      puts "Presione 1 para hacer otro calculo, otro para salir"
+
+      run_calculadora = gets.to_i
 
     elsif volumenes == "esfera"
+      constes = (4/3)* Math::PI
+
       puts "Ingrese datos del radio"
+
       radio = gets.to_i
 
-      respuesta = volumen_esfera(radio)
+      respuesta = volumen_esfera(constes,radio)
 
       puts "Su respuesta es #{respuesta}"
 
@@ -128,26 +137,28 @@ while run_calculadora == 1
       run_calculadora = gets.to_i
 
     elsif volumenes == "cilindro"
+      constci = Math::PI
       puts "Ingrese valor de radio"
-      radio = gets.to_f
+      radio = gets.to_i
       puts "Ingrese valor de la altura"
-      altura = gets.to_f
+      altura = gets.to_i
 
-      respuesta == volumen_cilindro(radio, altura)
+      respuestaes = volumen_cilindro(constci, radio, altura)
 
-      puts "Su respuesta es #{respuesta}"
+      puts "Su respuesta es #{respuestaes}"
 
       puts "Presione 1 para hacer otro calculo, otro para salir"
 
       run_calculadora = gets.to_i
 
     elsif volumenes == "cono"
+      constco = 1.047198
       puts "Ingrese valor de radio"
       radio = gets.to_f
       puts "Ingrese valor de altura"
       altura = gets.to_f
 
-      respuesta == volumen_cono(radio, altura)
+      respuesta = volumen_cono(constco, radio, altura)
 
       puts "Su respuesta es #{respuesta}"
 
@@ -156,12 +167,13 @@ while run_calculadora == 1
       run_calculadora = gets.to_i
 
     elsif volumenes == "piramide"
+      constpi = 0.1443376
       puts "Ingrese valor de lado de la base"
       ladobase = gets.to_f
       puts "Ingrese valor altura"
       altura = gets.to_f
 
-      respuesta == volumen_piramide(ladobase, altura)
+      respuesta = volumen_piramide(constpi, ladobase, altura)
 
       puts "Su respuesta es #{respuesta}"
 
