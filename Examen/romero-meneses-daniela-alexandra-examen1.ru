@@ -3,7 +3,7 @@
 # Crer una calculadora que realice sumas, restas, multiplicaciones, divisiones y operaciones extras
 
 def operacion
-  puts "Escriba 1 para suma, 2 para resta, 3 para multiplicacion, 4 para division, 5 para volumenes"
+  puts "Escriba 1 para suma, 2 para resta, 3 para multiplicacion, 4 para division, 5 para volumenes, 6 para salir"
   seleccion_operacion = gets.to_i
 
   if seleccion_operacion ==  1
@@ -16,6 +16,8 @@ def operacion
     "division"
   elsif  seleccion_operacion == 5
     "volumen"
+  elsif  seleccion_operacion == 6
+    "salir"
   else
     'error'
   end
@@ -80,10 +82,15 @@ run_calculadora = 1
 while run_calculadora == 1
 
   calculos_actuales = operacion()
+  if calculos_actuales == "salir"
 
-  if calculos_actuales == 'error'
+    run_calculadora = 0
 
-    "No entiendo la operacion, lo intentamos de nuevo?"
+  elsif calculos_actuales == 'error'
+
+    puts "No entiendo la operacion, lo intentamos de nuevo?"
+    
+    run_calculadora = 1
 
   elsif calculos_actuales == 'volumen'
 
@@ -206,5 +213,153 @@ while run_calculadora == 1
     puts "Presione 1 para hacer otro calculo, otro para salir"
 
     run_calculadora = gets.to_i
+  end
+end
+
+
+
+
+# PARTE 2
+# Crear un arreglo en el que se pueda crear, borrar y actualizar los datos
+
+def torneos
+  puts "Seleccione 1 para anadir torneo, 2 para borrar torneo, 3 mostrar ganadores, 4 salir "
+  seleccion_torneos = gets.to_i
+  if seleccion_torneos == 1
+    "anadir"
+  elsif  seleccion_torneos == 2
+    "borrar"
+  elsif seleccion_torneos == 3
+    "actualizar"
+  elsif seleccion_torneos == 4
+    "salir"
+  else
+    "error"
+  end
+end
+
+def respuesta_actualizar
+
+  puts "Seleccione una categoria 1 para Men's Singles, 2 para Men's Doubles, 3 para Women's Singles, 4 para Women's Doubles, 5 para Mix Doubles "
+  seleccion_actualizar = gets.to_i
+
+  if seleccion_actualizar == 1
+    "Men Singles"
+  elsif  seleccion_actualizar == 2
+    "Men Doubles"
+  elsif  seleccion_actualizar == 3
+    "Women Single"
+  elsif  seleccion_actualizar == 4
+    "Women Doubles"
+  elsif seleccion_actualizar == 5
+    "Mix Doubles"
+  else
+    "error"
+  end
+end
+
+iniciar_operacion = 1
+
+while iniciar_operacion == 1
+
+  programa = torneos
+
+  if programa == "salir"
+
+    iniciar_operacion = 0
+
+  elsif programa == "error"
+
+    puts "Seleccion no aceptada"
+
+    iniciar_operacion = 1
+
+  elsif programa == "anadir"
+
+    def array(elementos)
+      puts "Ingrese la ubicacion"
+      i = gets.to_i
+      puts "Ingrese nombre de torneo"
+      torneo_nombre = gets
+
+      elementos.insert(i,torneo_nombre)
+
+      puts elementos
+    end
+    anadir = array
+    
+    puts "Presione 1 para hacer regresar a las opciones principales"
+
+    iniciar_operacion = gets.to_i
+
+  elsif  programa == "borrar"
+
+    puts "Ingrese posicion empezando desde el 1"
+
+    indice = gets.to_i - 1
+
+    posicion.delete_at(indice)
+
+    puts posicion
+
+    puts "Presione 1 para hacer regresar a las opciones principales"
+
+    iniciar_operacion = gets.to_i
+
+  elsif programa == "actualizar"
+    puts "Seleccione torneo ubicacion del torneo"
+
+    indicetres = gets.to_i - 1
+
+    seleccion_tipo = respuesta_actualizar()
+
+    if seleccion_tipo == "Men Single"
+      if posicion[indicetres] == 'shanghai masters'
+        puts "Ronnie O'Sullivan"
+      elsif posicion[indicetres] == 'australia open'
+        puts "Novak Djokovic"
+      elsif posicion[indicetres] == 'italian open'
+        puts "Rafael Nadal"
+      else
+        "error"
+      end
+    elsif seleccion_tipo == "Woman Single"
+        if posicion[indicetres] == 'australia open'
+          puts "Naomi Osaka"
+        elsif posicion[indicetres] == 'italian open'
+          puts ""
+        else
+          "error"
+        end
+    elsif seleccion_tipo == "Men Double"
+      if posicion[indicetres] == 'australia open'
+        puts "Pierre-Hugues Herbert & Nicolas Mahut"
+      elsif posicion[indicetres] =='italian open'
+        puts ""
+      else
+        "error"
+      end
+    elsif seleccion_tipo == "Women Doubles"
+      if posicion[indicetres] == "australia open"
+        puts "Samantha Stosur & Zhang Shuai"
+      elsif posicion[indicetres] == 'italian open'
+        puts ""
+      else
+        "error"
+      end
+    elsif seleccion_tipo == "Mix Doubles"
+      if posicion[indicetres] == 'australia open'
+        puts "Barbora Krejčíková & Rajeev Ram"
+      else
+        "error"
+      end
+    end
+    puts "Presione 1 para hacer regresar a las opciones principales"
+
+    iniciar_operacion = gets.to_i
+  else
+    puts "Presione 1 para hacer regresar a las opciones principales"
+
+    iniciar_operacion = gets.to_i
   end
 end
