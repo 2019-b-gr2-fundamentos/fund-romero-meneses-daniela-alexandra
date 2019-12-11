@@ -217,12 +217,12 @@ while run_calculadora == 1
 end
 
 
-
-
 # PARTE 2
 # Crear un arreglo en el que se pueda crear, borrar y actualizar los datos
 
-def torneos
+$torneos = ["atp finals", "rolland garros", "wimbledon", "italian tour", "australia open"]
+
+def torneo
   puts "Seleccione 1 para anadir torneo, 2 para borrar torneo, 3 mostrar ganadores, 4 salir "
   seleccion_torneos = gets.to_i
   if seleccion_torneos == 1
@@ -239,8 +239,7 @@ def torneos
 end
 
 def respuesta_actualizar
-
-  puts "Seleccione una categoria 1 para Men's Singles, 2 para Men's Doubles, 3 para Women's Singles, 4 para Women's Doubles, 5 para Mix Doubles "
+  puts "Seleccione una categoria 1 para Men's Singles, 2 para Men's Doubles, 3 para Women's Singles, 4 para Women's Doubles "
   seleccion_actualizar = gets.to_i
 
   if seleccion_actualizar == 1
@@ -251,8 +250,6 @@ def respuesta_actualizar
     "Women Single"
   elsif  seleccion_actualizar == 4
     "Women Doubles"
-  elsif seleccion_actualizar == 5
-    "Mix Doubles"
   else
     "error"
   end
@@ -261,105 +258,225 @@ end
 iniciar_operacion = 1
 
 while iniciar_operacion == 1
+  
+  organizacion = $torneos.each_with_index do |element, index|
+  puts "#{index}: #{element}"
 
-  programa = torneos
+end
+  programa = torneo
 
-  if programa == "salir"
-
-    iniciar_operacion = 0
-
-  elsif programa == "error"
-
-    puts "Seleccion no aceptada"
-
+  if programa == 'error'
+    puts "Seleccion no reconocida"
     iniciar_operacion = 1
-
+  elsif programa == "salir"
+    iniciar_operacion = 0
   elsif programa == "anadir"
 
-    def array(elementos)
-      puts "Ingrese la ubicacion"
-      i = gets.to_i
-      puts "Ingrese nombre de torneo"
-      torneo_nombre = gets
+    puts "Ingrese posicion a anadir torneo"
+    i = gets.to_i 
 
-      elementos.insert(i,torneo_nombre)
+    puts "Nombre de torneo"
 
-      puts elementos
-    end
-    anadir = array
-    
+    nuevo_torneo = gets
+
+    $torneos.insert(i,nuevo_torneo)
+
+    puts "\n"
+
+    puts organizacion
+
+    puts "Ponga 1 para realizar otra operacion"
+
+    iniciar_operacion = gets.to_i
+  elsif programa == "borrar"
+
+    puts "Ingrese posicion de torneo a eliminar"
+
+    indice = gets.to_i
+
+    $torneos.delete_at(indice)
+
+    puts "\n"
+
+    puts organizacion
+
     puts "Presione 1 para hacer regresar a las opciones principales"
 
     iniciar_operacion = gets.to_i
 
-  elsif  programa == "borrar"
+  elsif programa == 'actualizar'
 
-    puts "Ingrese posicion empezando desde el 1"
+    tipodetorneo = respuesta_actualizar()
 
-    indice = gets.to_i - 1
+    puts "Ingrese posicion de torneo para ver sus ganadores"
 
-    posicion.delete_at(indice)
+    indiced = gets.to_i
 
-    puts posicion
+        if tipodetorneo == 'Men Singles'
+            if $torneos[indiced] == 'australia open'
+              puts "Ganador Australia Open = Novak Djokovic"
 
-    puts "Presione 1 para hacer regresar a las opciones principales"
+              puts "Presione 1 para hacer regresar a las opciones principales"
 
-    iniciar_operacion = gets.to_i
+              iniciar_operacion = gets.to_i
+            elsif $torneos[indiced] == 'wimbledon'
+              puts "Ganador Wimbledon = Novak Djokovic"
 
-  elsif programa == "actualizar"
-    puts "Seleccione torneo ubicacion del torneo"
+              puts "Presione 1 para hacer regresar a las opciones principales"
 
-    indicetres = gets.to_i - 1
+              iniciar_operacion = gets.to_i
+            elsif $torneos[indiced] == 'atp finals'
+              puts "Ganador ATP Finals = Stefanos Tsitsipas"
 
-    seleccion_tipo = respuesta_actualizar()
+              puts "Presione 1 para hacer regresar a las opciones principales"
 
-    if seleccion_tipo == "Men Single"
-      if posicion[indicetres] == 'shanghai masters'
-        puts "Ronnie O'Sullivan"
-      elsif posicion[indicetres] == 'australia open'
-        puts "Novak Djokovic"
-      elsif posicion[indicetres] == 'italian open'
-        puts "Rafael Nadal"
-      else
-        "error"
-      end
-    elsif seleccion_tipo == "Woman Single"
-        if posicion[indicetres] == 'australia open'
-          puts "Naomi Osaka"
-        elsif posicion[indicetres] == 'italian open'
-          puts ""
+              iniciar_operacion = gets.to_i
+            elsif $torneos[indiced] == 'roland garros'
+              puts 'Ganador roland garros = Rafael Nadal'
+
+              puts "Presione 1 para hacer regresar a las opciones principales"
+
+              iniciar_operacion = gets.to_i
+            elsif  $torneos[indiced] == 'italian open'
+              puts ' Ganador Italian Open = Rafael Nadal'
+              puts "Presione 1 para hacer regresar a las opciones principales"
+
+              iniciar_operacion = gets.to_i
+            else
+              "error"
+              puts "Presione 1 para hacer regresar a las opciones principales"
+
+              iniciar_operacion = gets.to_i
+            end
+        elsif tipodetorneo == 'Women Singles'
+          if $torneos[indiced] == 'australia open'
+            puts  "Ganadora Australia Open = Naomi Osaka"
+
+            puts "Presione 1 para hacer regresar a las opciones principales"
+
+            iniciar_operacion = gets.to_i
+          elsif $torneos[indiced] == 'wimbledon'
+            puts " Ganadora Wimbledon = Simona Halep"
+
+            puts "Presione 1 para hacer regresar a las opciones principales"
+
+            iniciar_operacion = gets.to_i
+          elsif $torneos[indiced] == 'atp finals'
+            puts "N/A"
+
+            puts "Presione 1 para hacer regresar a las opciones principales"
+
+            iniciar_operacion = gets.to_i
+          elsif $torneos[indiced] == 'roland garros'
+            puts 'Ganadora Roland Garros = Ashleigh Barty'
+
+            puts "Presione 1 para hacer regresar a las opciones principales"
+
+            iniciar_operacion = gets.to_i
+          elsif  $torneos[indiced] == 'italian open'
+            puts 'Ganadora Italian Open Karolína Plíšková'
+
+            puts "Presione 1 para hacer regresar a las opciones principales"
+
+            iniciar_operacion = gets.to_i
+          else
+            "error"
+            puts "Presione 1 para hacer regresar a las opciones principales"
+
+            iniciar_operacion = gets.to_i
+          end
+        elsif tipodetorneo == 'Men Doubles'
+          if $torneos[indiced] == 'australia open'
+            puts "Ganadores Australia Open Pierre-Hugues Herbert & Nicolas Mahut"
+
+            puts "Presione 1 para hacer regresar a las opciones principales"
+
+            iniciar_operacion = gets.to_i
+          elsif $torneos[indiced] == 'wimbledon'
+            puts "Ganadores Wimbledon = Juan Sebastián Cabal & Robert Farah"
+            puts "Presione 1 para hacer regresar a las opciones principales"
+
+            iniciar_operacion = gets.to_i
+          elsif $torneos[indiced] == 'atp finals'
+
+            puts "Ganadores ATP Finals Pierre-Hugues Herbert & Nicolas Mahut"
+
+            puts "Presione 1 para hacer regresar a las opciones principales"
+
+            iniciar_operacion = gets.to_i
+          elsif $torneos[indiced] == 'roland garros'
+            puts 'Ganadores Roland Garros = SKevin Krawietz & Andreas Mies'
+
+            puts "Presione 1 para hacer regresar a las opciones principales"
+
+            iniciar_operacion = gets.to_i
+          elsif  $torneos[indiced] == 'italian open'
+            puts 'Ganadores Italian Open = Juan Sebastián Cabal & Robert Farah'
+
+            puts "Presione 1 para hacer regresar a las opciones principales"
+
+            iniciar_operacion = gets.to_i
+          else
+            "error"
+            puts "Presione 1 para hacer regresar a las opciones principales"
+
+            iniciar_operacion = gets.to_i
+          end
+        elsif tipodetorneo == 'Women Double'
+
+          if $torneos[indiced] == 'australia open'
+            puts "Ganadoras Australia Open Samantha Stosur & Zhang Shuai"
+
+            puts "Presione 1 para hacer regresar a las opciones principales"
+
+            iniciar_operacion = gets.to_i
+
+          elsif $torneos[indiced] == 'wimbledon'
+
+            puts "Ganadoras Wimbledon = Su-Wei Hsieh & Barbora Strýcová"
+
+            puts "Presione 1 para hacer regresar a las opciones principales"
+
+            iniciar_operacion = gets.to_i
+
+          elsif $torneos[indiced] == 'atp finals'
+
+            puts  "N/A"
+
+            puts "Presione 1 para hacer regresar a las opciones principales"
+
+            iniciar_operacion = gets.to_i
+
+          elsif $torneos[indiced] == 'roland garros'
+            puts 'Ganadoras Roland Garros = Tímea Babos & Kristina Mladenovic'
+
+            puts "Presione 1 para hacer regresar a las opciones principales"
+
+            iniciar_operacion = gets.to_i
+          elsif  $torneos[indiced] == 'italian open'
+            puts 'Ganadoras Italian Open = Victoria Azarenka & Ashleigh Barty'
+
+            puts "Presione 1 para hacer regresar a las opciones principales"
+
+            iniciar_operacion = gets.to_i
+          else
+            "error"
+            puts "Presione 1 para hacer regresar a las opciones principales"
+
+            iniciar_operacion = gets.to_i
+          end
         else
           "error"
-        end
-    elsif seleccion_tipo == "Men Double"
-      if posicion[indicetres] == 'australia open'
-        puts "Pierre-Hugues Herbert & Nicolas Mahut"
-      elsif posicion[indicetres] =='italian open'
-        puts ""
-      else
-        "error"
-      end
-    elsif seleccion_tipo == "Women Doubles"
-      if posicion[indicetres] == "australia open"
-        puts "Samantha Stosur & Zhang Shuai"
-      elsif posicion[indicetres] == 'italian open'
-        puts ""
-      else
-        "error"
-      end
-    elsif seleccion_tipo == "Mix Doubles"
-      if posicion[indicetres] == 'australia open'
-        puts "Barbora Krejčíková & Rajeev Ram"
-      else
-        "error"
-      end
-    end
-    puts "Presione 1 para hacer regresar a las opciones principales"
+          puts "Presione 1 para hacer regresar a las opciones principales"
 
-    iniciar_operacion = gets.to_i
+          iniciar_operacion = gets.to_i
+        end
+
   else
+    "error"
     puts "Presione 1 para hacer regresar a las opciones principales"
 
     iniciar_operacion = gets.to_i
   end
+
 end
