@@ -14,8 +14,7 @@
  2) Compara m con n
  3) Si m y n son iguales compara los elementos dentro de las matrices posicion
  a posicion
- */
-
+*/
 
 function igualdadMyN(matriz:number[][], matrizDos:number[][]): void {
     for( let i:number = 0 ; i < matriz.length || i < matrizDos.length[i]; i++ ){
