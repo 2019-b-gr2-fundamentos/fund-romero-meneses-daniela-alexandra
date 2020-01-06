@@ -1,0 +1,17 @@
+{
+  "name": "04-librerias",
+  "version": "1.0.0",
+  "description": "libreria de fundamentos",
+  "main": "index.js",
+  "scripts": {
+    "empezar": "(tsc index.ts || echo) && node index.js"
+  },
+  "keywords": [
+    "fundamentos",
+    "epn",
+    "libreria",
+    "ejemplos"
+  ],
+  "author": "Daniela Romero",
+  "license": "ISC"
+}
