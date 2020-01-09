@@ -1,0 +1,15 @@
+{
+  "name": "05-proyecto",
+  "version": "1.0.0",
+  "description": "Proyecto",
+  "main": "index.js",
+  "dependencies": {
+    "04-librerias": "^2.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "empezar": "(tsc index.ts || echo) && node index.js"
+  },
+  "author": "Daniela Romero",
+  "license": "ISC"
+}
