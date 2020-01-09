@@ -9,6 +9,7 @@ import * as divisionLibreria from '04-librerias/lib/division'
 import * as areaCuadradroLibreria from '04-librerias/lib/area-cuadrado'
 import * as areaRectanguloLibreria from '04-librerias/lib/area-rectangulo'
 import * as areaTrianguloLibreria from '04-librerias/lib/area-triangulo'  
+import * as numeroPi from '04-librerias/lib/pi'
 
 const respuesta = sumaLibreria(1,2);
 const respuestaResta = restaLibreria(1,2);
@@ -17,6 +18,7 @@ const respuestaDivision = divisionLibreria(2,4);
 const respuestaAreaCuadrado = areaCuadradroLibreria(5);
 const respuestaAreaRectangulo = areaRectanguloLibreria(5,6);
 const respuestaAreaTriangulo = areaTrianguloLibreria(5,6);
+const respuestaPi = numeroPi;
 
 console.log('la respuesta de la suma es', respuesta);
 console.log('la respuesta de la resta es', respuestaResta);
@@ -25,3 +27,4 @@ console.log('la respuesta de la division es', respuestaDivision);
 console.log('la respuesta del area del cuadrado es', respuestaAreaCuadrado);
 console.log('la respuesta del area del rectangulo es', respuestaAreaRectangulo);
 console.log('la respuesta del area del triangulo es', respuestaAreaTriangulo);
+console.log('el numero pi es', respuestaPi);
