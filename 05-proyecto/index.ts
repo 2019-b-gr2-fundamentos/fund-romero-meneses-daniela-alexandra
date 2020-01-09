@@ -11,4 +11,17 @@ import * as areaRectanguloLibreria from '04-librerias/lib/area-rectangulo'
 import * as areaTrianguloLibreria from '04-librerias/lib/area-triangulo'  
 
 const respuesta = sumaLibreria(1,2);
-console.log('la respuesta es', respuesta);
+const respuestaResta = restaLibreria(1,2);
+const respuestaMultiplicacion = multiplicacionLibreria(2,4);
+const respuestaDivision = divisionLibreria(2,4);
+const respuestaAreaCuadrado = areaCuadradroLibreria(5);
+const respuestaAreaRectangulo = areaRectanguloLibreria(5,6);
+const respuestaAreaTriangulo = areaTrianguloLibreria(5,6);
+
+console.log('la respuesta de la suma es', respuesta);
+console.log('la respuesta de la resta es', respuestaResta);
+console.log('la respuesta de la multiplicacion es', respuestaMultiplicacion);
+console.log('la respuesta de la division es', respuestaDivision);
+console.log('la respuesta del area del cuadrado es', respuestaAreaCuadrado);
+console.log('la respuesta del area del rectangulo es', respuestaAreaRectangulo);
+console.log('la respuesta del area del triangulo es', respuestaAreaTriangulo);
