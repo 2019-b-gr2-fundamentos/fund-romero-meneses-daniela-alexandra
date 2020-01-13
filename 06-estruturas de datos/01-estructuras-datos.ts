@@ -52,12 +52,12 @@ const duenioPoliPerroAmarillo: Duenio = {
 }
 
 //Guardar datos dentro de estructura de datos
-
 poliPerroAmarillo.duenio = duenioPoliPerroAmarillo;
 poliPerroAmarillo.edad = 4;
 poliPerroAmarillo.vacunado = true;
 
 //Acceder a los datos de una estructura de datos
-
 console.log(poliPerroAmarillo.duenio.nombres);
 console.log(poliPerroAmarillo.duenio.apellidos);
+console.log(poliPerroAmarillo.nombre);
+console.log(poliPerroAmarillo.edad);
