@@ -1,6 +1,6 @@
 [
-    {
-    "id": 100,
-    "nombre": "Pepito"
-    }
+    {"id":1,"nombre":"Daniela"},
+    {"id":2,"nombre":"Andrea"},
+    {"id":3,"nombre":"Diego"},
+    {"id":4,"nombre":"Armando"}
 ]

@@ -1,7 +1,6 @@
 {
   "name": "07-archivos",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "(tsc 01-archivos.ts --target ES5 || echo) && node 01-archivos.js"
@@ -9,6 +8,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "prompts": "^2.3.0"
-  }
+    "prompts": "^2.3.0",
+    "typescript": "^3.7.5"
+  },
+  "description": ""
 }

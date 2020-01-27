@@ -37,18 +37,57 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var _02_leer_archivo_1 = require("./02-leer-archivo");
+var _03_escribir_archivos_1 = require("./03-escribir-archivos");
 var prompts = require("prompts");
 function main() {
     return __awaiter(this, void 0, void 0, function () {
-        var contador, contenidoArchivo, arregloCargadoDeArchivos, arregloEstudiantes, arregloPreguntas, respuestaEstudianteUno, nuevoResgistroUno, respuestaEstudianteDos, nuevoResgistroDos, idABuscar, indiceEncontrado, nombreAEditar, buscar, estudianteEncontrado;
+        var contador, contenidoArchivo, arregloCargadoDeArchivo, minimoId, arregloEstudiantes, arregloPreguntas, respuestaEstudianteUno, nuevoRegistroUno, respuestaEstudianteDos, nuevoRegistroDos, idABuscar, indiceEncontrado, nombreAEditar, buscar, estudianteEncontrado, arregloTexto;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    contador = 0;
+                    contador = 1;
                     contenidoArchivo = _02_leer_archivo_1.leerArchivo('./ejemplo.txt');
-                    console.log('Contenido Archivo', contenidoArchivo);
-                    arregloCargadoDeArchivos = JSON.parse(contenidoArchivo);
-                    arregloEstudiantes = arregloCargadoDeArchivos;
+                    try {
+                        arregloCargadoDeArchivo = JSON
+                            .parse(contenidoArchivo);
+                    }
+                    catch (error) {
+                        arregloCargadoDeArchivo = [];
+                        console.error('Error parseando archivo');
+                    }
+                    minimoId = -1;
+                    arregloCargadoDeArchivo
+                        .forEach(//NO SE ENVIA NADA Y NO SE DEVUELVE NADA
+                    //ITERAR
+                    function (valorActual) {
+                        var idActual = valorActual.id;
+                        if (idActual > minimoId) {
+                            minimoId = idActual;
+                        }
+                    });
+                    minimoId = minimoId + 1;
+                    contador = minimoId;
+                    /*
+                       try{
+                           console.log('1');
+                           console.log('2');
+                           console.log('3');
+                           //Syntax Error Ej: ***
+                           Reference Error Ej: var a = b;
+                           let a = 1;
+                           let a = 2;  -> ESTA MAL!!
+                           let a = 3;
+                           console.log(123156413521354156416545212134568465146456451354545613165454135146548746514316546541654654654864765132153436455646486746987484646541321313546546546545121321213131312131321546874894512121021546879865454132132154649878746456465416345646);
+                           //throw new Error("EL ARCHIVO ESTA MAL PARSEADO");
+                           console.log('4');
+                           console.log('5');
+                       }catch(error){
+                           console.log(error);
+                           console.log(':3');
+                       }
+                    */
+                    console.log('contenidoArchivo', contenidoArchivo);
+                    arregloEstudiantes = arregloCargadoDeArchivo;
                     arregloPreguntas = [
                         {
                             type: 'text',
@@ -59,39 +98,37 @@ function main() {
                     return [4 /*yield*/, prompts(arregloPreguntas)];
                 case 1:
                     respuestaEstudianteUno = _a.sent();
-                    nuevoResgistroUno = {
+                    nuevoRegistroUno = {
                         id: contador,
                         nombre: respuestaEstudianteUno.nombre
                     };
-                    contador++;
-                    arregloEstudiantes.push(nuevoResgistroUno);
+                    contador = contador + 1;
+                    arregloEstudiantes.push(nuevoRegistroUno);
                     return [4 /*yield*/, prompts(arregloPreguntas)];
                 case 2:
                     respuestaEstudianteDos = _a.sent();
-                    nuevoResgistroDos = {
+                    nuevoRegistroDos = {
                         id: contador,
                         nombre: respuestaEstudianteDos.nombre
                     };
-                    contador++;
-                    arregloEstudiantes.push(nuevoResgistroDos);
-                    console.log('¿Cual registro quieres editar?');
+                    contador = contador + 1;
+                    arregloEstudiantes.push(nuevoRegistroDos);
+                    console.log('Cual usuario quieres Editar?');
                     console.log(arregloEstudiantes);
                     return [4 /*yield*/, prompts({
                             type: 'number',
                             name: 'id',
                             message: 'Ingresa el ID del registro a Editar'
-                        })
-                        //Operadores -> Reemplazar al FOR
-                    ];
+                        })];
                 case 3:
                     idABuscar = _a.sent();
-                    indiceEncontrado = arregloEstudiantes.findIndex(//return CONDITION
+                    indiceEncontrado = arregloEstudiantes.findIndex(// return CONDICION ->
                     function (valorActual, indice, arreglo) {
-                        return valorActual.id == idABuscar.id; //Nos devuelve el INDICE
-                    } // Si encuentra devuelve el indice
-                    //No encuentra
+                        return valorActual.id == idABuscar.id; // Nos devuelve el INDICE
+                    } // Si encuentra nos devuelve el indice
+                    // No encuentra
                     );
-                    console.log('Indice Encontrado', indiceEncontrado);
+                    console.log('Indice encontrado:', indiceEncontrado);
                     return [4 /*yield*/, prompts({
                             type: 'text',
                             name: 'nombre',
@@ -99,20 +136,25 @@ function main() {
                         })];
                 case 4:
                     nombreAEditar = _a.sent();
-                    arregloEstudiantes[indiceEncontrado].nombre = nombreAEditar;
+                    arregloEstudiantes[indiceEncontrado].nombre = nombreAEditar.nombre;
                     console.log(arregloEstudiantes);
                     return [4 /*yield*/, prompts({
-                            type: 'text' || 'number',
-                            name: 'id' || 'nombre',
+                            type: 'text',
+                            name: 'nombre',
                             message: 'Buscar por ID o por NOMBRE'
                         })];
                 case 5:
                     buscar = _a.sent();
-                    estudianteEncontrado = arregloEstudiantes.find(// return condiction
+                    estudianteEncontrado = arregloEstudiantes
+                        .find(// return CONDICION
                     function (valorActual) {
                         return valorActual.nombre == buscar.nombre;
                     });
                     console.log(estudianteEncontrado);
+                    arregloTexto = JSON.stringify(arregloEstudiantes);
+                    // JSON.stringify -> Convierte objeto o arreglo en memoria a texto
+                    console.log(arregloTexto);
+                    _03_escribir_archivos_1.escribirArchivo('./ejemplo.txt', arregloTexto);
                     return [2 /*return*/];
             }
         });
