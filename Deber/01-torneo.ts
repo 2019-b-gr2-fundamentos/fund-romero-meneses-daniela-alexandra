@@ -1,5 +1,5 @@
-import {leerMatriz} from './02-leer-matriz'
-import {escribirMatriz} from "./03-escribir-matriz"
+import {leerMatriz} from './02-leer-torneo'
+import {escribirMatriz} from "./03-escribir-torneo"
 
 
 async function main(){
