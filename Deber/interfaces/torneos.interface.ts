@@ -4,6 +4,6 @@ export interface Torneos {
     lugar: string,
     campeon: string,
     finalista: string,
-    premioEnDolares: number,
+    premio: number,
     organizador: string,
 }
