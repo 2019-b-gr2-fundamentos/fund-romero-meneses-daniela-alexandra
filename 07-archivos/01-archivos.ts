@@ -33,7 +33,7 @@ async function main(){
         .forEach( //NO SE ENVIA NADA Y NO SE DEVUELVE NADA
             //ITERAR
             function(valorActual){
-                const idActual =valorActual.id;
+                const idActual = valorActual.id;
                 if(idActual > minimoId){
                     minimoId = idActual
                 }

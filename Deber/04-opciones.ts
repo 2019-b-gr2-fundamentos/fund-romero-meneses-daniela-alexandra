@@ -1,6 +1,5 @@
-
-import * as fs from "fs"
 import {numerosDeOpciones} from "./interfaces/opciones.interface"
+import * as prompts from "prompts"
 
 export async function funcionOpcion()
 {
@@ -12,5 +11,5 @@ export async function funcionOpcion()
         validate: value => (value < 0 || value > 5) ? `ESCOGER SOLO DE ENTRE LAS OPCIONES QUE APARECEN EN PANTALLA`:true
     }
     const opcionRespuesta:numerosDeOpciones = await prompts(opcion);
-    return opcionRespuesta.numeroDeOpcion;
+    return opcionRespuesta.numeros;
 }
