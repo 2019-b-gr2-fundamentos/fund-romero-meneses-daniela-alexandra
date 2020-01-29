@@ -1,6 +1,6 @@
 import * as fs from 'fs'
 
-export function escribirMatriz(path: string, contenido: string){
+export function escribirTorneos(path: string, contenido: string){
     fs.writeFyleSync(
         path, 
         contenido,
