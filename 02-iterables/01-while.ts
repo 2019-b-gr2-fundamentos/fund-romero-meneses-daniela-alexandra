@@ -19,7 +19,6 @@ do {
     }
 } while(vecesQueHeComido < 3)
 
-
 while(vecesQueHeComido < 3){
     vecesQueHeComido = 0;
     console.log("Vamos a Comer")

@@ -318,19 +318,33 @@ while iniciar_operacion == 1
 
         if tipodetorneo == 'Men Singles'
             if $torneos[indiced] == 'australia open'
-              puts "Ganador Australia Open = Novak Djokovic"
+              $torneos.delete_at(indiced)
+              $torneos.insert(indiced, 'Novak Djokovic')
+
+              $torneos.each_with_index do |element, index|
+                puts "#{index}: #{element}"
+              end
 
               puts "Presione 1 para hacer regresar a las opciones principales"
 
               iniciar_operacion = gets.to_i
             elsif $torneos[indiced] == 'wimbledon'
-              puts "Ganador Wimbledon = Novak Djokovic"
+              $torneos.delete_at(indiced)
+              $torneos.insert(indiced, 'Novak Djokovic')
 
+              $torneos.each_with_index do |element, index|
+                puts "#{index}: #{element}"
+              end
               puts "Presione 1 para hacer regresar a las opciones principales"
 
               iniciar_operacion = gets.to_i
             elsif $torneos[indiced] == 'atp finals'
-              puts "Ganador ATP Finals = Stefanos Tsitsipas"
+              $torneos.delete_at(indiced)
+              $torneos.insert(indiced, 'Stefanos Tsitsipas')
+
+              $torneos.each_with_index do |element, index|
+                puts "#{index}: #{element}"
+              end
 
               puts "Presione 1 para hacer regresar a las opciones principales"
 
@@ -458,9 +472,12 @@ while iniciar_operacion == 1
 
             iniciar_operacion = gets.to_i
           elsif  $torneos[indiced] == 'italian open'
-            puts 'Ganadoras Italian Open = Victoria Azarenka & Ashleigh Barty'
 
-            puts "Presione 1 para hacer regresar a las opciones principales"
+            $torneos.delete_at(indiced)
+            $torneos.insert(indiced, 'Victoria Azarenka & Ashleigh Barty' )
+
+
+
 
             iniciar_operacion = gets.to_i
           else
