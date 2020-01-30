@@ -4,6 +4,6 @@ export function escribirTorneos(path: string, contenido: string){
     fs.writeFyleSync(
         path, 
         contenido,
-        'utf-8'
+        'utf8'
     );
 }
