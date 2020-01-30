@@ -41,11 +41,12 @@ var _03_escribir_torneo_1 = require("./03-escribir-torneo");
 var prompts = require("prompts");
 function main() {
     return __awaiter(this, void 0, void 0, function () {
-        var contenidoArchivo, arregloCargadoDeArchivos, contador, minimoID, arregloToneos, arregloPreguntas, opcion, _a, respuestaTorneoUno, nuevoRegistroUno, idABuscar_1, idEncontrado, opcionesDeEdicion, _b, nombreAEditar, lugarAEditar, campeonAEditar, finalistaAEditar, premioAEditar, organizadorAEditar, idABuscar2_1, idEncontrado2, buscarTorneo_1, torneoEncontrado, arregloTorneo;
+        var contenidoArchivo, contador, arregloCargadoDeArchivos, minimoID, arregloToneos, arregloPreguntas, opcion, _a, respuestaTorneoUno, nuevoRegistroUno, idABuscar_1, idEncontrado, opcionesDeEdicion, _b, nombreAEditar, lugarAEditar, campeonAEditar, finalistaAEditar, premioAEditar, organizadorAEditar, idABuscar2_1, idEncontrado2, buscarTorneo_1, torneoEncontrado, arregloTextoTorneos;
         return __generator(this, function (_c) {
             switch (_c.label) {
                 case 0:
                     contenidoArchivo = _02_leer_torneo_1.leerTorneos("./torneos.txt");
+                    contador = 1;
                     console.log("Torneos ingresados", contenidoArchivo);
                     try {
                         arregloCargadoDeArchivos = JSON.parse(contenidoArchivo);
@@ -64,15 +65,15 @@ function main() {
                         console.log("Error de Parseo");
                     }
                     ;
-                    contador = 5;
                     minimoID = -1;
                     arregloCargadoDeArchivos.forEach(function (valorActual) {
                         var idActual = valorActual.id;
-                        if (valorActual > minimoID) {
+                        if (idActual > minimoID) {
                             minimoID = idActual;
                         }
                     });
                     minimoID = minimoID + 1;
+                    contador = minimoID;
                     arregloToneos = arregloCargadoDeArchivos;
                     arregloPreguntas = [
                         {
@@ -250,7 +251,9 @@ function main() {
                 case 25:
                     _c.sent();
                     return [3 /*break*/, 26];
-                case 26: return [3 /*break*/, 36];
+                case 26:
+                    ;
+                    return [3 /*break*/, 36];
                 case 27: return [4 /*yield*/, prompts({
                         type: "number",
                         name: "id",
@@ -267,17 +270,19 @@ function main() {
                 case 29:
                     _c.sent();
                     return [3 /*break*/, 36];
-                case 30: return [4 /*yield*/, prompts({
-                        type: "number",
-                        name: "id",
-                        message: "Ingrese el ID del torneo a buscar"
-                    })];
+                case 30:
+                    console.log(arregloToneos);
+                    return [4 /*yield*/, prompts({
+                            type: "number",
+                            name: "id",
+                            message: "Ingrese el ID del torneo a buscar"
+                        })];
                 case 31:
                     buscarTorneo_1 = _c.sent();
                     torneoEncontrado = arregloToneos
                         .find(// return CONDICION
                     function (valorActual) {
-                        return valorActual.nombre == buscarTorneo_1.nombre;
+                        return valorActual.id == buscarTorneo_1.id;
                     });
                     console.log(torneoEncontrado);
                     return [4 /*yield*/, main()];
@@ -285,7 +290,7 @@ function main() {
                     _c.sent();
                     return [3 /*break*/, 36];
                 case 33:
-                    console.log("Torneos", contenidoArchivo);
+                    console.log(arregloToneos);
                     return [4 /*yield*/, main()];
                 case 34:
                     _c.sent();
@@ -294,9 +299,10 @@ function main() {
                     console.log("Se termino\n");
                     return [3 /*break*/, 36];
                 case 36:
-                    arregloTorneo = JSON.stringify(arregloToneos);
-                    console.log(arregloTorneo);
-                    _03_escribir_torneo_1.escribirTorneos("./torneos.txt", arregloTorneo);
+                    ;
+                    arregloTextoTorneos = JSON.stringify(arregloToneos);
+                    console.log(arregloTextoTorneos);
+                    _03_escribir_torneo_1.escribirTorneos('./torneos.txt', arregloTextoTorneos);
                     return [2 /*return*/];
             }
         });

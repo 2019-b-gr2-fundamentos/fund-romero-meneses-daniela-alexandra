@@ -7,7 +7,7 @@ import { numerosDeOpciones } from "./interfaces/opciones.interface"
 
 async function main(){
     const contenidoArchivo = leerTorneos("./torneos.txt");
-
+    let contador = 1;
     console.log("Torneos ingresados", contenidoArchivo);
 
     let arregloCargadoDeArchivos;
@@ -28,19 +28,19 @@ async function main(){
         console.log("Error de Parseo")
     };
 
-    let contador = 5;
-
+    
     let minimoID = -1;
 
     arregloCargadoDeArchivos.forEach(
         function(valorActual){
             const idActual = valorActual.id;
-            if(valorActual > minimoID){
+            if(idActual > minimoID){
                 minimoID = idActual;
             }
         }
     );
     minimoID = minimoID + 1;
+    contador = minimoID;
 
     const arregloToneos: Torneos[] = arregloCargadoDeArchivos;
     const arregloPreguntas = [
@@ -213,7 +213,7 @@ async function main(){
                         console.log(arregloToneos)
                         await main();
                         break;
-                }
+                };
                 break;
             case 3: 
                 const idABuscar2 = await prompts(
@@ -235,6 +235,8 @@ async function main(){
                 break;
 
             case 4:
+                console.log(arregloToneos);
+
                 const buscarTorneo = await prompts(
                     {
                         type: "number",
@@ -245,30 +247,30 @@ async function main(){
                 const torneoEncontrado = arregloToneos
                 .find( // return CONDICION
                     function(valorActual){
-                        return valorActual.nombre == buscarTorneo.nombre;
+                        return valorActual.id == buscarTorneo.id;
                     }
                 );
                 console.log(torneoEncontrado);
 
                 await main();
                 break;
-
+        
             case 5:
-                console.log("Torneos", contenidoArchivo);
+                console.log(arregloToneos);
                 await main();
                 break;
 
             case 6:
                 console.log("Se termino\n");
                 break;
-            }
+            };
         
     
-    const arregloTorneo = JSON.stringify(arregloToneos);
-    console.log(arregloTorneo);
+    const arregloTextoTorneos = JSON.stringify(arregloToneos);
+    console.log(arregloTextoTorneos);
     escribirTorneos(
-        "./torneos.txt",
-        arregloTorneo
+        './torneos.txt',
+        arregloTextoTorneos
     );
 
 }
