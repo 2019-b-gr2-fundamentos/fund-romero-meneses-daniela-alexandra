@@ -39,10 +39,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var _02_leer_torneo_1 = require("./02-leer-torneo");
 var _03_escribir_torneo_1 = require("./03-escribir-torneo");
 var prompts = require("prompts");
-var _04_opciones_1 = require("./04-opciones");
 function main() {
     return __awaiter(this, void 0, void 0, function () {
-        var contenidoArchivo, arregloCargadoDeArchivos, contador, minimoID, arregloToneos, arregloPreguntas, opciones, anadirTorneo, editarregistros, eliminarTorneo, buscarRegistro, salirDeLosRegistros, esValido, casos, _a, respuestaTorneoUno, nuevoRegistroUno, idABuscar_1, idEncontrado, opcionesDeEdicion, _b, nombreAEditar, lugarAEditar, campeonAEditar, finalistaAEditar, premioAEditar, organizadorAEditar, idABuscar2_1, idEncontrado2, buscarTorneo_1, torneoEncontrado, arregloTorneo;
+        var contenidoArchivo, arregloCargadoDeArchivos, contador, minimoID, arregloToneos, arregloPreguntas, opcion, _a, respuestaTorneoUno, nuevoRegistroUno, idABuscar_1, idEncontrado, opcionesDeEdicion, _b, nombreAEditar, lugarAEditar, campeonAEditar, finalistaAEditar, premioAEditar, organizadorAEditar, idABuscar2_1, idEncontrado2, buscarTorneo_1, torneoEncontrado, arregloTorneo;
         return __generator(this, function (_c) {
             switch (_c.label) {
                 case 0:
@@ -65,7 +64,7 @@ function main() {
                         console.log("Error de Parseo");
                     }
                     ;
-                    contador = 3;
+                    contador = 5;
                     minimoID = -1;
                     arregloCargadoDeArchivos.forEach(function (valorActual) {
                         var idActual = valorActual.id;
@@ -107,30 +106,28 @@ function main() {
                             message: "Ingresa el organizador del torneo (ATP o WTA)"
                         }
                     ];
-                    opciones = prompts({
-                        type: "number",
-                        name: "opciones",
-                        message: "Elija una opcion: \n1 para Añadir Torneo \n2 para Editar Torneos \n3 para Eliminar Torneos \n4 para Buscar Torneo \n5 para Salir\n"
-                    });
-                    anadirTorneo = opciones == "1";
-                    editarregistros = opciones == "2";
-                    eliminarTorneo = opciones == "3";
-                    buscarRegistro = opciones == "4";
-                    salirDeLosRegistros = opciones == "5";
-                    esValido = anadirTorneo || editarregistros || eliminarTorneo || buscarRegistro || salirDeLosRegistros;
-                    if (!esValido) return [3 /*break*/, 29];
-                    casos = esValido;
-                    _a = casos;
+                    console.log("Elija la opcion que desea realizar, ingrese solo el numero:");
+                    console.log("1:Agregar torneo");
+                    console.log("2:Editar torneo");
+                    console.log("3:Eliminar torneo");
+                    console.log("4:Buscar buscar torneo");
+                    console.log("5:Ver elementos del arreglo");
+                    console.log("6:Salir");
+                    return [4 /*yield*/, opcionfuncion()];
+                case 1:
+                    opcion = _c.sent();
+                    _a = opcion;
                     switch (_a) {
-                        case anadirTorneo: return [3 /*break*/, 1];
-                        case editarregistros: return [3 /*break*/, 3];
-                        case eliminarTorneo: return [3 /*break*/, 22];
-                        case buscarRegistro: return [3 /*break*/, 25];
-                        case salirDeLosRegistros: return [3 /*break*/, 28];
+                        case 1: return [3 /*break*/, 2];
+                        case 2: return [3 /*break*/, 5];
+                        case 3: return [3 /*break*/, 27];
+                        case 4: return [3 /*break*/, 30];
+                        case 5: return [3 /*break*/, 33];
+                        case 6: return [3 /*break*/, 35];
                     }
-                    return [3 /*break*/, 29];
-                case 1: return [4 /*yield*/, prompts(arregloPreguntas)];
-                case 2:
+                    return [3 /*break*/, 36];
+                case 2: return [4 /*yield*/, prompts(arregloPreguntas)];
+                case 3:
                     respuestaTorneoUno = _c.sent();
                     nuevoRegistroUno = {
                         id: contador,
@@ -143,128 +140,139 @@ function main() {
                     };
                     contador = contador + 1;
                     arregloToneos.push(nuevoRegistroUno);
-                    console.log("Torneos ingresados", contenidoArchivo);
-                    return [3 /*break*/, 29];
-                case 3:
+                    console.log(arregloToneos);
+                    return [4 /*yield*/, main()];
+                case 4:
+                    _c.sent();
+                    return [3 /*break*/, 36];
+                case 5:
                     console.log(arregloToneos);
                     return [4 /*yield*/, prompts({
                             type: "number",
                             name: "id",
                             message: "Ingresa el id del torneo a editar"
                         })];
-                case 4:
+                case 6:
                     idABuscar_1 = _c.sent();
                     idEncontrado = arregloToneos.findIndex(function (valorActual) {
                         return valorActual.id == idABuscar_1.id;
                     });
                     console.log("Indice Encontrado", idEncontrado);
                     console.log("\nQue deseas editar:\n", "1 Nombre\n", "2 Lugar\n", "3 Campeon\n", "4 Finalista\n", "5 Premio\n", "6 Organizador\n");
-                    return [4 /*yield*/, _04_opciones_1.funcionOpcion()];
-                case 5:
+                    return [4 /*yield*/, opcionfuncion()];
+                case 7:
                     opcionesDeEdicion = _c.sent();
                     _b = opcionesDeEdicion;
                     switch (_b) {
-                        case 1: return [3 /*break*/, 6];
-                        case 2: return [3 /*break*/, 9];
-                        case 3: return [3 /*break*/, 12];
-                        case 4: return [3 /*break*/, 15];
-                        case 5: return [3 /*break*/, 17];
-                        case 6: return [3 /*break*/, 19];
+                        case 1: return [3 /*break*/, 8];
+                        case 2: return [3 /*break*/, 11];
+                        case 3: return [3 /*break*/, 14];
+                        case 4: return [3 /*break*/, 17];
+                        case 5: return [3 /*break*/, 20];
+                        case 6: return [3 /*break*/, 23];
                     }
-                    return [3 /*break*/, 21];
-                case 6: return [4 /*yield*/, prompts({
+                    return [3 /*break*/, 26];
+                case 8: return [4 /*yield*/, prompts({
                         type: "text",
                         name: "nombre",
                         message: "Ingrese el nombre del torneo",
                     })];
-                case 7:
+                case 9:
                     nombreAEditar = _c.sent();
                     arregloToneos[idEncontrado].nombre = nombreAEditar.nombre;
                     console.log(arregloToneos);
-                    return [4 /*yield*/, _04_opciones_1.funcionOpcion()];
-                case 8:
+                    return [4 /*yield*/, main()];
+                case 10:
                     _c.sent();
-                    return [3 /*break*/, 21];
-                case 9: return [4 /*yield*/, prompts({
+                    return [3 /*break*/, 26];
+                case 11: return [4 /*yield*/, prompts({
                         type: "text",
                         name: "lugar",
                         message: "Ingresa el lugar del torneo"
                     })];
-                case 10:
+                case 12:
                     lugarAEditar = _c.sent();
                     arregloToneos[idEncontrado].lugar = lugarAEditar.lugar;
                     console.log(arregloToneos);
-                    return [4 /*yield*/, _04_opciones_1.funcionOpcion()];
-                case 11:
+                    return [4 /*yield*/, main()];
+                case 13:
                     _c.sent();
-                    return [3 /*break*/, 21];
-                case 12: return [4 /*yield*/, prompts({
+                    return [3 /*break*/, 26];
+                case 14: return [4 /*yield*/, prompts({
                         type: "text",
                         name: "campeon",
                         message: "Ingrese el nombre del campeon"
                     })];
-                case 13:
+                case 15:
                     campeonAEditar = _c.sent();
                     arregloToneos[idEncontrado].campeon = campeonAEditar.campeon;
                     console.log(arregloToneos);
-                    return [4 /*yield*/, _04_opciones_1.funcionOpcion()];
-                case 14:
+                    return [4 /*yield*/, main()];
+                case 16:
                     _c.sent();
-                    return [3 /*break*/, 21];
-                case 15: return [4 /*yield*/, prompts({
+                    return [3 /*break*/, 26];
+                case 17: return [4 /*yield*/, prompts({
                         type: "text",
                         name: "finalista",
                         message: "Ingrese nombre del finalista"
                     })];
-                case 16:
+                case 18:
                     finalistaAEditar = _c.sent();
                     arregloToneos[idEncontrado].finalista = finalistaAEditar.finalista;
                     console.log(arregloToneos);
-                    return [3 /*break*/, 21];
-                case 17: return [4 /*yield*/, prompts({
+                    return [4 /*yield*/, main()];
+                case 19:
+                    _c.sent();
+                    return [3 /*break*/, 26];
+                case 20: return [4 /*yield*/, prompts({
                         type: "number",
                         name: "premio",
                         message: "Ingrese valor del premio"
                     })];
-                case 18:
+                case 21:
                     premioAEditar = _c.sent();
                     arregloToneos[idEncontrado].premio = premioAEditar.premio;
                     console.log(arregloToneos);
-                    return [3 /*break*/, 21];
-                case 19: return [4 /*yield*/, prompts({
+                    return [4 /*yield*/, main()];
+                case 22:
+                    _c.sent();
+                    return [3 /*break*/, 26];
+                case 23: return [4 /*yield*/, prompts({
                         type: "text",
                         name: "organizador",
                         message: "Ingrese nombre del organizador"
                     })];
-                case 20:
+                case 24:
                     organizadorAEditar = _c.sent();
                     arregloToneos[idEncontrado].organizador = organizadorAEditar.organizador;
                     console.log(arregloToneos);
-                    return [3 /*break*/, 21];
-                case 21: return [3 /*break*/, 29];
-                case 22: return [4 /*yield*/, prompts({
+                    return [4 /*yield*/, main()];
+                case 25:
+                    _c.sent();
+                    return [3 /*break*/, 26];
+                case 26: return [3 /*break*/, 36];
+                case 27: return [4 /*yield*/, prompts({
                         type: "number",
                         name: "id",
                         message: "Ingresa el id del torneo a eliminar"
                     })];
-                case 23:
+                case 28:
                     idABuscar2_1 = _c.sent();
-                    idEncontrado2 = arregloToneos.findIndex(function (valorActual) {
+                    idEncontrado2 = arregloToneos.findIndex(function (valorActual, indice, arreglo) {
                         return valorActual.id == idABuscar2_1.id;
                     });
-                    console.log("Indice Encontrado", idEncontrado2);
-                    arregloToneos.splice(1, idEncontrado2);
-                    console.log("Torneos Ingresados", contenidoArchivo);
-                    return [4 /*yield*/, _04_opciones_1.funcionOpcion()];
-                case 24:
+                    arregloToneos.splice(idEncontrado2, 1);
+                    console.log("Torneos Ingresados", arregloToneos);
+                    return [4 /*yield*/, main()];
+                case 29:
                     _c.sent();
-                    return [3 /*break*/, 29];
-                case 25: return [4 /*yield*/, prompts({
+                    return [3 /*break*/, 36];
+                case 30: return [4 /*yield*/, prompts({
                         type: "number",
                         name: "id",
                         message: "Ingrese el ID del torneo a buscar"
                     })];
-                case 26:
+                case 31:
                     buscarTorneo_1 = _c.sent();
                     torneoEncontrado = arregloToneos
                         .find(// return CONDICION
@@ -272,15 +280,20 @@ function main() {
                         return valorActual.nombre == buscarTorneo_1.nombre;
                     });
                     console.log(torneoEncontrado);
-                    return [4 /*yield*/, _04_opciones_1.funcionOpcion()];
-                case 27:
+                    return [4 /*yield*/, main()];
+                case 32:
                     _c.sent();
-                    return [3 /*break*/, 29];
-                case 28:
-                    console.log("Se termino");
-                    return [3 /*break*/, 29];
-                case 29:
-                    ;
+                    return [3 /*break*/, 36];
+                case 33:
+                    console.log("Torneos", contenidoArchivo);
+                    return [4 /*yield*/, main()];
+                case 34:
+                    _c.sent();
+                    return [3 /*break*/, 36];
+                case 35:
+                    console.log("Se termino\n");
+                    return [3 /*break*/, 36];
+                case 36:
                     arregloTorneo = JSON.stringify(arregloToneos);
                     console.log(arregloTorneo);
                     _03_escribir_torneo_1.escribirTorneos("./torneos.txt", arregloTorneo);
@@ -289,4 +302,24 @@ function main() {
         });
     });
 }
-main();
+function opcionfuncion() {
+    return __awaiter(this, void 0, void 0, function () {
+        var opcion, opcionElegida;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    opcion = {
+                        type: 'number',
+                        name: 'numeros',
+                        message: 'Elija una opcion',
+                        validate: function (value) { return (value < 0 || value > 10 ? 'Escoger valor' : true); }
+                    };
+                    return [4 /*yield*/, prompts(opcion)];
+                case 1:
+                    opcionElegida = _a.sent();
+                    return [2 /*return*/, opcionElegida.numeros];
+            }
+        });
+    });
+}
+main().then().catch();
