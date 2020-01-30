@@ -2,7 +2,7 @@ import { leerTorneos } from './02-leer-torneo'
 import { escribirTorneos } from "./03-escribir-torneo"
 import { Torneos } from "./interfaces/torneos.interface"
 import * as prompts from 'prompts'
-import { numerosDeOpciones } from "./interfaces/opciones.interface"
+import { funcionOpcion } from './04-opciones'
 
 
 async function main(){
@@ -28,7 +28,7 @@ async function main(){
         console.log("Error de Parseo")
     };
 
-    let contador = 4;
+    let contador = 3;
 
     let minimoID = -1;
 
@@ -76,18 +76,25 @@ async function main(){
         }
     ];
 
-    console.log("Elija la opcion que desea realizar, ingrese solo el numero:")
-    console.log("1:Agregar torneo")
-    console.log("2:Editar torneo")
-    console.log("3:Eliminar torneo")
-    console.log("4:Buscar buscar torneo")
-    console.log("5:Ver elementos del arreglo")
-    console.log("6:Salir")
+    const opciones = prompts(
+        {
+            type: "number",
+            name: "opciones",
+            message: "Elija una opcion: \n1 para Añadir Torneo \n2 para Editar Torneos \n3 para Eliminar Torneos \n4 para Buscar Torneo \n5 para Salir\n"
+        }
 
-    const opcion = await opcionfuncion();
-        
-        switch(opcion){
-            case 1:
+    );
+    const anadirTorneo: boolean = opciones == "1";
+    const editarregistros: boolean = opciones == "2";
+    const eliminarTorneo: boolean = opciones == "3";
+    const buscarRegistro: boolean = opciones== "4";
+    const salirDeLosRegistros: boolean = opciones == "5";
+    const esValido: boolean = anadirTorneo || editarregistros || eliminarTorneo || buscarRegistro || salirDeLosRegistros;
+
+    if(esValido){
+        const casos = esValido
+        switch(casos){
+            case anadirTorneo:
                 const respuestaTorneoUno = await prompts(arregloPreguntas);
                 const nuevoRegistroUno = {
                     id: contador,
@@ -106,7 +113,7 @@ async function main(){
 
                 break;
                 
-            case 2:
+            case editarregistros:
                 console.log(arregloToneos);
 
                 const idABuscar = await prompts(
@@ -131,7 +138,7 @@ async function main(){
                 "5 Premio\n",
                 "6 Organizador\n");
 
-                const opcionesDeEdicion = await opcionfuncion();
+                const opcionesDeEdicion = await funcionOpcion();
 
                 switch(opcionesDeEdicion){
                     case 1: 
@@ -145,7 +152,7 @@ async function main(){
                         arregloToneos[idEncontrado].nombre = nombreAEditar.nombre;
                     
                         console.log(arregloToneos);
-                        await opcionfuncion();
+                        await funcionOpcion();
                         break;
                     case 2:
                         const lugarAEditar = await prompts(
@@ -158,7 +165,7 @@ async function main(){
                         arregloToneos[idEncontrado].lugar = lugarAEditar.lugar
 
                         console.log(arregloToneos);
-                        await opcionfuncion();
+                        await funcionOpcion();
                         break;
                     case 3:
                         const campeonAEditar = await prompts(
@@ -171,7 +178,7 @@ async function main(){
                         arregloToneos[idEncontrado].campeon = campeonAEditar.campeon
 
                         console.log(arregloToneos);
-                        await opcionfuncion();
+                        await funcionOpcion();
                         break;
                     case 4: 
                         const finalistaAEditar = await prompts(
@@ -211,7 +218,7 @@ async function main(){
                         break;
                 }
                 break;
-            case 3: 
+            case eliminarTorneo: 
                 const idABuscar2 = await prompts(
                     {
                         type: "number",
@@ -228,10 +235,10 @@ async function main(){
 
                 arregloToneos.splice(1, idEncontrado2);
                 console.log("Torneos Ingresados", contenidoArchivo);
-                await opcionfuncion();
+                await funcionOpcion();
                 break;
 
-            case 4:
+            case buscarRegistro:
                 const buscarTorneo = await prompts(
                     {
                         type: "number",
@@ -247,14 +254,14 @@ async function main(){
                 );
                 console.log(torneoEncontrado);
 
-                await opcionfuncion();
+                await funcionOpcion();
                 break;
 
-            case 5:
+            case salirDeLosRegistros:
                 console.log("Se termino")
                 break;
             }
-        
+        };
     
     const arregloTorneo = JSON.stringify(arregloToneos);
     console.log(arregloTorneo);
@@ -265,16 +272,4 @@ async function main(){
 
 }
 
-async function opcionfuncion(){
-    const opcion =
-    {
-        type:'number',
-        name:'numeros',
-        message: 'Elija una opcion',
-        validate: value => (value < 0 || value > 10 ? 'Escoger valor':true)
-    }
-
-    const opcionElegida:numerosDeOpciones = await prompts(opcion);
-    return opcionElegida.numeros;
-}
-main().then().catch();
+main();
