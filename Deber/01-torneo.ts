@@ -28,7 +28,7 @@ async function main(){
         console.log("Error de Parseo")
     };
 
-    let contador = 4;
+    let contador = 5;
 
     let minimoID = -1;
 
@@ -102,7 +102,8 @@ async function main(){
                     contador = contador + 1;
                     arregloToneos.push(nuevoRegistroUno);
 
-                    console.log("Torneos ingresados", contenidoArchivo)
+                    console.log(arregloToneos);
+                    await main();
 
                 break;
                 
@@ -145,7 +146,7 @@ async function main(){
                         arregloToneos[idEncontrado].nombre = nombreAEditar.nombre;
                     
                         console.log(arregloToneos);
-                        await opcionfuncion();
+                        await main();
                         break;
                     case 2:
                         const lugarAEditar = await prompts(
@@ -158,7 +159,7 @@ async function main(){
                         arregloToneos[idEncontrado].lugar = lugarAEditar.lugar
 
                         console.log(arregloToneos);
-                        await opcionfuncion();
+                        await main();
                         break;
                     case 3:
                         const campeonAEditar = await prompts(
@@ -171,7 +172,7 @@ async function main(){
                         arregloToneos[idEncontrado].campeon = campeonAEditar.campeon
 
                         console.log(arregloToneos);
-                        await opcionfuncion();
+                        await main();
                         break;
                     case 4: 
                         const finalistaAEditar = await prompts(
@@ -184,6 +185,7 @@ async function main(){
                         arregloToneos[idEncontrado].finalista = finalistaAEditar.finalista
 
                             console.log(arregloToneos);
+                            await main();
                             break;
                     case 5:
                         const premioAEditar = await prompts(
@@ -196,6 +198,7 @@ async function main(){
                         arregloToneos[idEncontrado].premio = premioAEditar.premio
 
                         console.log(arregloToneos);
+                        await main();
                         break;
                     case 6:
                         const organizadorAEditar = await prompts(
@@ -208,6 +211,7 @@ async function main(){
                         arregloToneos[idEncontrado].organizador = organizadorAEditar.organizador
 
                         console.log(arregloToneos)
+                        await main();
                         break;
                 }
                 break;
@@ -220,15 +224,14 @@ async function main(){
                     }
                 );
                 const idEncontrado2 = arregloToneos.findIndex(
-                    function(valorActual){
+                    function(valorActual, indice, arreglo){
                         return valorActual.id == idABuscar2.id
                     }
                 )
-                console.log("Indice Encontrado", idEncontrado2);
 
-                arregloToneos.splice(1, idEncontrado2);
-                console.log("Torneos Ingresados", contenidoArchivo);
-                await opcionfuncion();
+                arregloToneos.splice(idEncontrado2, 1);
+                console.log("Torneos Ingresados", arregloToneos);
+                await main();
                 break;
 
             case 4:
@@ -247,11 +250,16 @@ async function main(){
                 );
                 console.log(torneoEncontrado);
 
-                await opcionfuncion();
+                await main();
                 break;
 
             case 5:
-                console.log("Se termino")
+                console.log("Torneos", contenidoArchivo);
+                await main();
+                break;
+
+            case 6:
+                console.log("Se termino\n");
                 break;
             }
         
