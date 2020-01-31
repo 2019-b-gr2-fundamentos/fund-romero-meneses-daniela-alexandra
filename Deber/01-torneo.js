@@ -41,13 +41,12 @@ var _03_escribir_torneo_1 = require("./03-escribir-torneo");
 var prompts = require("prompts");
 function main() {
     return __awaiter(this, void 0, void 0, function () {
-        var contenidoArchivo, contador, arregloCargadoDeArchivos, minimoID, arregloToneos, arregloPreguntas, opcion, _a, respuestaTorneoUno, nuevoRegistroUno, idABuscar_1, idEncontrado, opcionesDeEdicion, _b, nombreAEditar, lugarAEditar, campeonAEditar, finalistaAEditar, premioAEditar, organizadorAEditar, idABuscar2_1, idEncontrado2, buscarTorneo_1, torneoEncontrado, arregloTextoTorneos;
+        var contenidoArchivo, contador, arregloCargadoDeArchivos, minimoID, arregloToneos, arregloPreguntas, opcion, _a, respuestaTorneoUno, nuevoRegistroUno, idABuscar_1, idEncontrado, opcionesDeEdicion, _b, nombreAEditar, arregloTextoTorneos_1, lugarAEditar, arregloTextoTorneos2, campeonAEditar, finalistaAEditar, premioAEditar, organizadorAEditar, idABuscar2_1, idEncontrado2, buscarTorneo_1, torneoEncontrado, arregloTextoTorneos;
         return __generator(this, function (_c) {
             switch (_c.label) {
                 case 0:
                     contenidoArchivo = _02_leer_torneo_1.leerTorneos("./torneos.txt");
                     contador = 1;
-                    console.log("Torneos ingresados", contenidoArchivo);
                     try {
                         arregloCargadoDeArchivos = JSON.parse(contenidoArchivo);
                     }
@@ -182,6 +181,9 @@ function main() {
                     nombreAEditar = _c.sent();
                     arregloToneos[idEncontrado].nombre = nombreAEditar.nombre;
                     console.log(arregloToneos);
+                    arregloTextoTorneos_1 = JSON.stringify(arregloToneos);
+                    console.log(arregloTextoTorneos_1);
+                    _03_escribir_torneo_1.escribirTorneos('./torneos.txt', arregloTextoTorneos_1);
                     return [4 /*yield*/, main()];
                 case 10:
                     _c.sent();
@@ -195,6 +197,9 @@ function main() {
                     lugarAEditar = _c.sent();
                     arregloToneos[idEncontrado].lugar = lugarAEditar.lugar;
                     console.log(arregloToneos);
+                    arregloTextoTorneos2 = JSON.stringify(arregloToneos);
+                    console.log(arregloTextoTorneos2);
+                    _03_escribir_torneo_1.escribirTorneos('./torneos.txt', arregloTextoTorneos2);
                     return [4 /*yield*/, main()];
                 case 13:
                     _c.sent();

@@ -8,7 +8,6 @@ import { numerosDeOpciones } from "./interfaces/opciones.interface"
 async function main(){
     const contenidoArchivo = leerTorneos("./torneos.txt");
     let contador = 1;
-    console.log("Torneos ingresados", contenidoArchivo);
 
     let arregloCargadoDeArchivos;
 
@@ -146,6 +145,14 @@ async function main(){
                         arregloToneos[idEncontrado].nombre = nombreAEditar.nombre;
                     
                         console.log(arregloToneos);
+
+                        const arregloTextoTorneos = JSON.stringify(arregloToneos);
+                        console.log(arregloTextoTorneos);
+                        escribirTorneos(
+                            './torneos.txt',
+                            arregloTextoTorneos
+                        );
+
                         await main();
                         break;
                     case 2:
@@ -159,6 +166,13 @@ async function main(){
                         arregloToneos[idEncontrado].lugar = lugarAEditar.lugar
 
                         console.log(arregloToneos);
+
+                        const arregloTextoTorneos2 = JSON.stringify(arregloToneos);
+                        console.log(arregloTextoTorneos2);
+                        escribirTorneos(
+                            './torneos.txt',
+                            arregloTextoTorneos2
+                        );
                         await main();
                         break;
                     case 3:
