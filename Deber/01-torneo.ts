@@ -102,6 +102,12 @@ async function main(){
                     arregloToneos.push(nuevoRegistroUno);
 
                     console.log(arregloToneos);
+                    const arregloTextoTorneos = JSON.stringify(arregloToneos);
+                        console.log(arregloTextoTorneos);
+                        escribirTorneos(
+                            './torneos.txt',
+                            arregloTextoTorneos
+                        );
                     await main();
 
                 break;
@@ -186,6 +192,12 @@ async function main(){
                         arregloToneos[idEncontrado].campeon = campeonAEditar.campeon
 
                         console.log(arregloToneos);
+                        const arregloTextoTorneos3 = JSON.stringify(arregloToneos);
+                        console.log(arregloTextoTorneos3);
+                        escribirTorneos(
+                            './torneos.txt',
+                            arregloTextoTorneos3
+                        );
                         await main();
                         break;
                     case 4: 
@@ -199,6 +211,12 @@ async function main(){
                         arregloToneos[idEncontrado].finalista = finalistaAEditar.finalista
 
                             console.log(arregloToneos);
+                            const arregloTextoTorneos4 = JSON.stringify(arregloToneos);
+                        console.log(arregloTextoTorneos4);
+                        escribirTorneos(
+                            './torneos.txt',
+                            arregloTextoTorneos4
+                        );
                             await main();
                             break;
                     case 5:
@@ -212,6 +230,12 @@ async function main(){
                         arregloToneos[idEncontrado].premio = premioAEditar.premio
 
                         console.log(arregloToneos);
+                        const arregloTextoTorneos5 = JSON.stringify(arregloToneos);
+                        console.log(arregloTextoTorneos5);
+                        escribirTorneos(
+                            './torneos.txt',
+                            arregloTextoTorneos5
+                        );
                         await main();
                         break;
                     case 6:
@@ -225,6 +249,12 @@ async function main(){
                         arregloToneos[idEncontrado].organizador = organizadorAEditar.organizador
 
                         console.log(arregloToneos)
+                        const arregloTextoTorneos6 = JSON.stringify(arregloToneos);
+                        console.log(arregloTextoTorneos6);
+                        escribirTorneos(
+                            './torneos.txt',
+                            arregloTextoTorneos6
+                        );
                         await main();
                         break;
                 };
@@ -245,6 +275,12 @@ async function main(){
 
                 arregloToneos.splice(idEncontrado2, 1);
                 console.log("Torneos Ingresados", arregloToneos);
+                const arregloTextoTorneos7 = JSON.stringify(arregloToneos);
+                        console.log(arregloTextoTorneos7);
+                        escribirTorneos(
+                            './torneos.txt',
+                            arregloTextoTorneos7
+                        );
                 await main();
                 break;
 
@@ -265,12 +301,23 @@ async function main(){
                     }
                 );
                 console.log(torneoEncontrado);
-
+                const arregloTextoTorneos8 = JSON.stringify(arregloToneos);
+                        console.log(arregloTextoTorneos8);
+                        escribirTorneos(
+                            './torneos.txt',
+                            arregloTextoTorneos8
+                        );
                 await main();
                 break;
         
             case 5:
                 console.log(arregloToneos);
+                const arregloTextoTorneos9 = JSON.stringify(arregloToneos);
+                        console.log(arregloTextoTorneos9);
+                        escribirTorneos(
+                            './torneos.txt',
+                            arregloTextoTorneos9
+                        );
                 await main();
                 break;
 
@@ -278,14 +325,6 @@ async function main(){
                 console.log("Se termino\n");
                 break;
             };
-        
-    
-    const arregloTextoTorneos = JSON.stringify(arregloToneos);
-    console.log(arregloTextoTorneos);
-    escribirTorneos(
-        './torneos.txt',
-        arregloTextoTorneos
-    );
 
 }
 
