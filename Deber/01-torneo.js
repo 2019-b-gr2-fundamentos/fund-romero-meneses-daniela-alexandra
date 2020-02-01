@@ -41,7 +41,7 @@ var _03_escribir_torneo_1 = require("./03-escribir-torneo");
 var prompts = require("prompts");
 function main() {
     return __awaiter(this, void 0, void 0, function () {
-        var contenidoArchivo, contador, arregloCargadoDeArchivos, minimoID, arregloToneos, arregloPreguntas, opcion, _a, respuestaTorneoUno, nuevoRegistroUno, idABuscar_1, idEncontrado, opcionesDeEdicion, _b, nombreAEditar, arregloTextoTorneos_1, lugarAEditar, arregloTextoTorneos2, campeonAEditar, finalistaAEditar, premioAEditar, organizadorAEditar, idABuscar2_1, idEncontrado2, buscarTorneo_1, torneoEncontrado, arregloTextoTorneos;
+        var contenidoArchivo, contador, arregloCargadoDeArchivos, minimoID, arregloToneos, arregloPreguntas, opcion, _a, respuestaTorneoUno, nuevoRegistroUno, arregloTextoTorneos, idABuscar_1, idEncontrado, opcionesDeEdicion, _b, nombreAEditar, arregloTextoTorneos_1, lugarAEditar, arregloTextoTorneos2, campeonAEditar, arregloTextoTorneos3, finalistaAEditar, arregloTextoTorneos4, premioAEditar, arregloTextoTorneos5, organizadorAEditar, arregloTextoTorneos6, idABuscar2_1, idEncontrado2, arregloTextoTorneos7, buscarTorneo_1, torneoEncontrado, arregloTextoTorneos8, arregloTextoTorneos9;
         return __generator(this, function (_c) {
             switch (_c.label) {
                 case 0:
@@ -141,6 +141,9 @@ function main() {
                     contador = contador + 1;
                     arregloToneos.push(nuevoRegistroUno);
                     console.log(arregloToneos);
+                    arregloTextoTorneos = JSON.stringify(arregloToneos);
+                    console.log(arregloTextoTorneos);
+                    _03_escribir_torneo_1.escribirTorneos('./torneos.txt', arregloTextoTorneos);
                     return [4 /*yield*/, main()];
                 case 4:
                     _c.sent();
@@ -213,6 +216,9 @@ function main() {
                     campeonAEditar = _c.sent();
                     arregloToneos[idEncontrado].campeon = campeonAEditar.campeon;
                     console.log(arregloToneos);
+                    arregloTextoTorneos3 = JSON.stringify(arregloToneos);
+                    console.log(arregloTextoTorneos3);
+                    _03_escribir_torneo_1.escribirTorneos('./torneos.txt', arregloTextoTorneos3);
                     return [4 /*yield*/, main()];
                 case 16:
                     _c.sent();
@@ -226,6 +232,9 @@ function main() {
                     finalistaAEditar = _c.sent();
                     arregloToneos[idEncontrado].finalista = finalistaAEditar.finalista;
                     console.log(arregloToneos);
+                    arregloTextoTorneos4 = JSON.stringify(arregloToneos);
+                    console.log(arregloTextoTorneos4);
+                    _03_escribir_torneo_1.escribirTorneos('./torneos.txt', arregloTextoTorneos4);
                     return [4 /*yield*/, main()];
                 case 19:
                     _c.sent();
@@ -239,6 +248,9 @@ function main() {
                     premioAEditar = _c.sent();
                     arregloToneos[idEncontrado].premio = premioAEditar.premio;
                     console.log(arregloToneos);
+                    arregloTextoTorneos5 = JSON.stringify(arregloToneos);
+                    console.log(arregloTextoTorneos5);
+                    _03_escribir_torneo_1.escribirTorneos('./torneos.txt', arregloTextoTorneos5);
                     return [4 /*yield*/, main()];
                 case 22:
                     _c.sent();
@@ -252,6 +264,9 @@ function main() {
                     organizadorAEditar = _c.sent();
                     arregloToneos[idEncontrado].organizador = organizadorAEditar.organizador;
                     console.log(arregloToneos);
+                    arregloTextoTorneos6 = JSON.stringify(arregloToneos);
+                    console.log(arregloTextoTorneos6);
+                    _03_escribir_torneo_1.escribirTorneos('./torneos.txt', arregloTextoTorneos6);
                     return [4 /*yield*/, main()];
                 case 25:
                     _c.sent();
@@ -271,6 +286,9 @@ function main() {
                     });
                     arregloToneos.splice(idEncontrado2, 1);
                     console.log("Torneos Ingresados", arregloToneos);
+                    arregloTextoTorneos7 = JSON.stringify(arregloToneos);
+                    console.log(arregloTextoTorneos7);
+                    _03_escribir_torneo_1.escribirTorneos('./torneos.txt', arregloTextoTorneos7);
                     return [4 /*yield*/, main()];
                 case 29:
                     _c.sent();
@@ -290,12 +308,18 @@ function main() {
                         return valorActual.id == buscarTorneo_1.id;
                     });
                     console.log(torneoEncontrado);
+                    arregloTextoTorneos8 = JSON.stringify(arregloToneos);
+                    console.log(arregloTextoTorneos8);
+                    _03_escribir_torneo_1.escribirTorneos('./torneos.txt', arregloTextoTorneos8);
                     return [4 /*yield*/, main()];
                 case 32:
                     _c.sent();
                     return [3 /*break*/, 36];
                 case 33:
                     console.log(arregloToneos);
+                    arregloTextoTorneos9 = JSON.stringify(arregloToneos);
+                    console.log(arregloTextoTorneos9);
+                    _03_escribir_torneo_1.escribirTorneos('./torneos.txt', arregloTextoTorneos9);
                     return [4 /*yield*/, main()];
                 case 34:
                     _c.sent();
@@ -305,9 +329,6 @@ function main() {
                     return [3 /*break*/, 36];
                 case 36:
                     ;
-                    arregloTextoTorneos = JSON.stringify(arregloToneos);
-                    console.log(arregloTextoTorneos);
-                    _03_escribir_torneo_1.escribirTorneos('./torneos.txt', arregloTextoTorneos);
                     return [2 /*return*/];
             }
         });

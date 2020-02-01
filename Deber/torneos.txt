@@ -1,8 +1,1 @@
-[
-    {"id":1,"nombre":"Abierto de Catar","campeon":"Elise Mertens","finalista":"Simona Halep","premioEnDolares":2517.25,"organizador":"WTA"},
-    {"id":2,"nombre":"Doha","campeon":"Roberto Bautista","finalista":"Tomas Berdych","premioEnDolares":1110.25,"organizador":"ATP"},
-    {"id":3,"nombre":"Hobart International","campeon":"Sofia Kenin","finalista":"Anna Karolina Schmiedlova","premioEnDolares":275,"organizador":"WTA"},
-    {"id":4,"nombre":"Brisbane","campeon":"Kei Nishikori","finalista":"Daniil Medvedev","premioEnDolares":372.5,"organizador":"ATP"},
-    {"id":5,"nombre":"Australia Open","lugar":"s","campeon":"dd","finalista":"f","premio":12,"organizador":"a"}
-
-]
+[{"id":1,"nombre":"Abierto de Catar","campeon":"Elise Mertens","finalista":"Simona Halep","premioEnDolares":2517.25,"organizador":"WTA"},{"id":2,"nombre":"Doha","campeon":"Roberto Bautista","finalista":"Tomas Berdych","premioEnDolares":1110.25,"organizador":"ATP"},{"id":3,"nombre":"Hobart International","campeon":"Sofia Kenin","finalista":"Anna Karolina Schmiedlova","premioEnDolares":275,"organizador":"WTA"},{"id":4,"nombre":"Brisbane","campeon":"Kei Nishikori","finalista":"Daniil Medvedev","premioEnDolares":372.5,"organizador":"ATP"}]
